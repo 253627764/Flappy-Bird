@@ -8,6 +8,7 @@
 
 #include "Pipe.h"
 #include "../util/GameConst.h"
+#include "../layer/GameScoreLayer.h"
 
 using namespace CocosDenshion;
 Pipe::Pipe():isStart(true)
@@ -104,6 +105,7 @@ void Pipe::update(float dt)
     if (pCurNode->getPositionX() < mWinSize.width/2 - 48) {
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sfx_point.mp3");
         pPipeVector.eraseObject(pCurNode);
+        GameScoreLayer::getInstance()->addScore();
     }
 }
 

@@ -10,6 +10,7 @@
 #include "../domain/Pipe.h"
 #include "../util/GameConst.h"
 #include "GameOverLayer.h"
+#include "GameScoreLayer.h"
 
 using namespace CocosDenshion;
 GameMainLayer::GameMainLayer():pBird(nullptr)
@@ -78,5 +79,8 @@ void GameMainLayer::gameOver()
 void GameMainLayer::gameStart()
 {
     pBird->setBirdState(StateFly);
+    auto scoreLayer = GameScoreLayer::getInstance();
+    scoreLayer->resetScore();
+    this->addChild(scoreLayer, 5);
 }
 

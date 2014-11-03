@@ -20,7 +20,6 @@ public:
     virtual bool init();
     CREATE_FUNC(Bird);
     virtual void update(float dt);
-    void loadBirdAnimation();
     void setBirdState(BirdState mState);
 private:
     BirdType mBirdType;

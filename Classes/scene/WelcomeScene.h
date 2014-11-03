@@ -16,10 +16,11 @@ class WelcomeScene:public Scene
 {
 public:
     WelcomeScene();
-    ~WelcomeScene();
     virtual bool init();
     CREATE_FUNC(WelcomeScene);
     void relpaceScene();
+    void loadAnimation();
+    void loadEffects();
 };
 
 #endif /* defined(__supertarkartGame__WelcomeScene__) */

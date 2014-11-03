@@ -25,7 +25,6 @@ bool Bird::init()
     char tmpBirdStr[12] = {0};
     sprintf(tmpBirdStr, "bird%d_0.png", mBirdType);
     pBirdSprite = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName(tmpBirdStr));
-    loadBirdAnimation();
     
     ActionManager *pActionManager = Director::getInstance()->getActionManager();
     AnimationCache *pAnimationCache = AnimationCache::getInstance();
@@ -71,24 +70,6 @@ void Bird::update(float dt)
         pBirdSprite->setPositionX(mWinSize.height);
     }
     pBirdSprite->setRotation(pBirdSprite->getPhysicsBody()->getVelocity().y*(-0.1));
-}
-
-void Bird::loadBirdAnimation()
-{
-    Vector<SpriteFrame *> pBirdSpriteFrame;
-    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
-    char birdSpriteFrameName[12] = {0};
-    for (int i=0; i<3; i++) {
-        sprintf(birdSpriteFrameName, "bird%d_%d.png", mBirdType, i);
-        SpriteFrame *pFrame = pFrameCache->getSpriteFrameByName(birdSpriteFrameName);
-        pBirdSpriteFrame.pushBack(pFrame);
-    }
-    sprintf(birdSpriteFrameName, "bird%d", mBirdType);
-    AnimationCache *pBirdAnimationCache = AnimationCache::getInstance();
-    pBirdAnimationCache->removeAnimation(birdSpriteFrameName);
-    Animation *pBirdAnimation = Animation::createWithSpriteFrames(pBirdSpriteFrame);
-    pBirdAnimation->setDelayPerUnit(0.1f);
-    pBirdAnimationCache->addAnimation(pBirdAnimation, birdSpriteFrameName);
 }
 
 void Bird::setBirdState(BirdState mState)

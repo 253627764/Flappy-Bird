@@ -15,9 +15,18 @@ using namespace cocos2d;
 class GameScoreLayer:public Layer
 {
 public:
+    GameScoreLayer();
     virtual bool init();
     CREATE_FUNC(GameScoreLayer);
+    static GameScoreLayer *getInstance();
+    static void releaseInstance();
+    void addScore();
+    void resetScore();
+    int getScore();
     
+private:
+    Label *pScoreLabel;
+    int mScore;
 };
 
 #endif /* defined(__supertarkartGame__GameScoreLayer__) */

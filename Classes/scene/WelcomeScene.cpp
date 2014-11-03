@@ -9,6 +9,7 @@
 #include "WelcomeScene.h"
 #include "MenuScene.h"
 #include "../util/GameResources.h"
+using namespace CocosDenshion;
 
 WelcomeScene::WelcomeScene()
 {
@@ -16,14 +17,6 @@ WelcomeScene::WelcomeScene()
     TextureCache *pTextureCache = Director::getInstance()->getTextureCache();
     pFrameCache->addSpriteFramesWithFile(plist_game);
     pTextureCache->addImage(img_game);
-}
-
-WelcomeScene::~WelcomeScene()
-{
-    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
-    TextureCache *pTextureCache = Director::getInstance()->getTextureCache();
-    pTextureCache->removeTextureForKey(img_game);
-    pFrameCache->removeSpriteFramesFromFile(plist_game);
 }
 
 bool WelcomeScene::init()
@@ -38,7 +31,11 @@ bool WelcomeScene::init()
     pWelcomeSprite->setPosition(Point(mWinSize.width/2, mWinSize.height/2));
     welcomeLayer->addChild(pWelcomeSprite);
     
-    DelayTime *pDelay = DelayTime::create(1.5f);
+    //load resources
+    loadAnimation();
+    loadEffects();
+    
+    DelayTime *pDelay = DelayTime::create(3.0f);
     CallFuncN *pCallback = CallFuncN::create(CC_CALLBACK_0(WelcomeScene::relpaceScene, this));
     ActionInterval *pAction = Sequence::create(pDelay, pCallback, nullptr);
     this->runAction(pAction);
@@ -49,5 +46,36 @@ bool WelcomeScene::init()
 void WelcomeScene::relpaceScene()
 {
     auto menuScene = MenuScene::create();
-    Director::getInstance()->pushScene(menuScene);
+    Director::getInstance()->replaceScene(menuScene);
+}
+
+void WelcomeScene::loadAnimation()
+{
+    Vector<SpriteFrame *> pBirdSpriteFrame;
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
+    char birdSpriteFrameName[12] = {0};
+    for (int j=0; j<3; j++) {
+        for (int i=0; i<3; i++) {
+            sprintf(birdSpriteFrameName, "bird%d_%d.png", j, i);
+            SpriteFrame *pFrame = pFrameCache->getSpriteFrameByName(birdSpriteFrameName);
+            pBirdSpriteFrame.pushBack(pFrame);
+        }
+        sprintf(birdSpriteFrameName, "bird%d", j);
+        AnimationCache *pBirdAnimationCache = AnimationCache::getInstance();
+        pBirdAnimationCache->removeAnimation(birdSpriteFrameName);
+        Animation *pBirdAnimation = Animation::createWithSpriteFrames(pBirdSpriteFrame);
+        pBirdAnimation->setDelayPerUnit(0.1f);
+        pBirdAnimationCache->addAnimation(pBirdAnimation, birdSpriteFrameName);
+        pBirdSpriteFrame.clear();
+    }
+}
+
+void WelcomeScene::loadEffects()
+{
+    SimpleAudioEngine *pAudioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
+    pAudioEngine->preloadEffect("sfx_die.mp3");
+    pAudioEngine->preloadEffect("sfx_hit.mp3");
+    pAudioEngine->preloadEffect("sfx_point.mp3");
+    pAudioEngine->preloadEffect("sfx_swooshing.mp3");
+    pAudioEngine->preloadEffect("sfx_wing.mp3");
 }

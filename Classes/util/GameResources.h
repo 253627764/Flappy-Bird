@@ -17,4 +17,6 @@ static const char *img_game   = "images.png";
 
 static const char *img_loading= "splash.png";
 
+static const char *fnt_font1 = "font1.fnt";
+static const char *fnt_font2 = "font2.fnt";
 #endif
