@@ -19,7 +19,6 @@ public:
     virtual bool init();
     CREATE_FUNC(GameMainLayer);
     void gameOver();
-    void gamePause();
     void gameStart();
 private:
     Bird *pBird;

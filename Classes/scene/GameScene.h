@@ -20,10 +20,6 @@ public:
     virtual bool init();
     CREATE_FUNC(GameScene);
     static Scene *createScene();
-    void gamePause();
-    void gameOver();
-    void gameStart();
-    void gameRestart();
 };
 
 #endif /* defined(__supertarkartGame__GameScene__) */

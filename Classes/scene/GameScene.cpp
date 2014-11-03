@@ -45,25 +45,3 @@ Scene *GameScene::createScene()
     scene->addChild(gameScene);
     return scene;
 }
-
-void GameScene::gameStart()
-{
-    
-}
-
-
-void GameScene::gamePause()
-{
-    
-}
-
-void GameScene::gameOver()
-{
-    
-}
-
-void GameScene::gameRestart()
-{
-    
-}
-

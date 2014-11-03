@@ -73,13 +73,7 @@ bool GameMainLayer::init()
 void GameMainLayer::gameOver()
 {
     GameOverLayer *pGameOverLayer = GameOverLayer::create();
-    pGameOverLayer->setPosition(Point::ZERO);
     this->addChild(pGameOverLayer, 128);
-}
-
-void GameMainLayer::gamePause()
-{
-    
 }
 
 void GameMainLayer::gameStart()
