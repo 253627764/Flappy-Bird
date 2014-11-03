@@ -61,10 +61,7 @@ bool GameMainLayer::init()
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sfx_hit.mp3");
         pipe->stopMovePipe();
         pBird->setBirdState(StateDie);
-        GameOverLayer *pGameOverLayer = GameOverLayer::create();
-        pGameOverLayer->setPosition(Point::ZERO);
-        this->addChild(pGameOverLayer, 128);
-        
+        gameOver();
         _eventDispatcher->removeEventListener(pEventListener);
         return true;
     };
@@ -73,14 +70,11 @@ bool GameMainLayer::init()
     return true;
 }
 
-void GameMainLayer::gameLogic(float dt)
-{
-    
-}
-
 void GameMainLayer::gameOver()
 {
-    
+    GameOverLayer *pGameOverLayer = GameOverLayer::create();
+    pGameOverLayer->setPosition(Point::ZERO);
+    this->addChild(pGameOverLayer, 128);
 }
 
 void GameMainLayer::gamePause()

@@ -49,8 +49,9 @@ bool GameOverLayer::init()
 
 void GameOverLayer::gameRestart()
 {
+    Director *pGd = Director::getInstance();
     auto gameScene = GameScene::createScene();
-    Director::getInstance()->replaceScene(gameScene);
+    pGd->replaceScene(gameScene);
 }
 
 void GameOverLayer::gameShareScore()

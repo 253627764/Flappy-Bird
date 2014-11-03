@@ -21,7 +21,6 @@ public:
     void gameOver();
     void gamePause();
     void gameStart();
-    void gameLogic(float dt);
 private:
     Bird *pBird;
     EventListenerPhysicsContact *pEventListener;
