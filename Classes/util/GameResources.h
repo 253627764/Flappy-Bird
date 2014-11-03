@@ -12,4 +12,9 @@
 static const char *file_name = "atlas.txt";
 static const char *img_name  = "atlas.png";
 
+static const char *plist_game = "images.plist";
+static const char *img_game   = "images.png";
+
+static const char *img_loading= "splash.png";
+
 #endif

@@ -15,8 +15,6 @@ using namespace cocos2d;
 class GameScene:public Layer
 {
 public:
-    GameScene();
-    ~GameScene();
     virtual bool init();
     CREATE_FUNC(GameScene);
     static Scene *createScene();

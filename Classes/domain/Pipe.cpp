@@ -7,7 +7,6 @@
 //
 
 #include "Pipe.h"
-#include "../tools/GameResource.h"
 #include "../util/GameConst.h"
 
 using namespace CocosDenshion;
@@ -32,8 +31,8 @@ bool Pipe::init()
 
 void Pipe::addPipe(float dt)
 {
-    GameResource *pGr = GameResource::getInstance();
-    auto pipe_up = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("pipe_up"));
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
+    auto pipe_up = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("pipe_up.png"));
     pipe_up->setPosition(Point(pipe_up->getContentSize().width/2,pipe_up->getContentSize().height/2));
     auto body_up=PhysicsBody::create();
     auto body_shape_up=PhysicsShapeBox::create(pipe_up->getContentSize());
@@ -46,7 +45,7 @@ void Pipe::addPipe(float dt)
     pipe_up->setPhysicsBody(body_up);
     
     //向下管道初始化，这边的THROUGH_HEIGHT是两根管道之间的空隙
-    auto pipe_down = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("pipe_down"));
+    auto pipe_down = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("pipe_down.png"));
     pipe_down->setPosition(Point(pipe_down->getContentSize().width/2,pipe_down->getContentSize().height/2+pipe_up->getContentSize().height+THROUGH_HEIGHT));
     auto body_down=PhysicsBody::create();
     auto body_shape_down=PhysicsShapeBox::create(pipe_down->getContentSize());

@@ -10,23 +10,6 @@
 #include "GameScene.h"
 #include "../layer/MenuLayer.h"
 #include "../layer/MenuBottomLayer.h"
-#include "../tools/GameResource.h"
-#include "../util/GameResources.h"
-
-MenuScene::MenuScene()
-{
-    auto pTexture2D = Director::getInstance()->getTextureCache()->addImage(img_name);
-    GameResource *pGr = GameResource::getInstance();
-    pGr->loadAtlas(file_name, pTexture2D);
-}
-
-MenuScene::~MenuScene()
-{
-    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
-    pFrameCache->removeUnusedSpriteFrames();
-    TextureCache *pTextureCache = Director::getInstance()->getTextureCache();
-    pTextureCache->removeTextureForKey(img_name);
-}
 
 bool MenuScene::init()
 {

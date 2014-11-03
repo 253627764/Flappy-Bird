@@ -8,23 +8,7 @@
 
 #include "GameScene.h"
 #include "../layer/GameMainLayer.h"
-#include "../tools/GameResource.h"
 #include "../util/GameResources.h"
-
-GameScene::GameScene()
-{
-    auto pTexture2D = Director::getInstance()->getTextureCache()->addImage(img_name);
-    GameResource *pGr = GameResource::getInstance();
-    pGr->loadAtlas(file_name, pTexture2D);
-}
-
-GameScene::~GameScene()
-{
-    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
-    pFrameCache->removeUnusedSpriteFrames();
-    TextureCache *pTextureCache = Director::getInstance()->getTextureCache();
-    pTextureCache->removeTextureForKey(img_name);
-}
 
 bool GameScene::init()
 {

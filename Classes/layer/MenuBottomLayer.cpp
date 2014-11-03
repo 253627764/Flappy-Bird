@@ -7,7 +7,6 @@
 //
 
 #include "MenuBottomLayer.h"
-#include "../tools/GameResource.h"
 MenuBottomLayer::MenuBottomLayer()
 {
     
@@ -19,8 +18,8 @@ bool MenuBottomLayer::init()
     {
         return false;
     }
-    GameResource *pGr = GameResource::getInstance();
-    Sprite *pFloat = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("land"));
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
+    Sprite *pFloat = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("land.png"));
     pFloat->setPosition(Point(0, 0));
     this->addChild(pFloat);
     

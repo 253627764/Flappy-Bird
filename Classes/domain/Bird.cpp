@@ -7,7 +7,6 @@
 //
 
 #include "Bird.h"
-#include "../tools/GameResource.h"
 #include "../util/GameConst.h"
 
 Bird::Bird():mBirdType(RedBird), bIsDead(false), pBirdSprite(nullptr), touchListener(nullptr)
@@ -20,12 +19,12 @@ bool Bird::init()
     if (!Node::init()) {
         return false;
     }
-    GameResource *pGr = GameResource::getInstance();
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     mBirdType = (BirdType)(rand()%3);
     
     char tmpBirdStr[12] = {0};
-    sprintf(tmpBirdStr, "bird%d_0", mBirdType);
-    pBirdSprite = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName(tmpBirdStr));
+    sprintf(tmpBirdStr, "bird%d_0.png", mBirdType);
+    pBirdSprite = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName(tmpBirdStr));
     loadBirdAnimation();
     
     ActionManager *pActionManager = Director::getInstance()->getActionManager();
@@ -77,11 +76,11 @@ void Bird::update(float dt)
 void Bird::loadBirdAnimation()
 {
     Vector<SpriteFrame *> pBirdSpriteFrame;
-    GameResource *pGr = GameResource::getInstance();
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     char birdSpriteFrameName[12] = {0};
     for (int i=0; i<3; i++) {
-        sprintf(birdSpriteFrameName, "bird%d_%d", mBirdType, i);
-        SpriteFrame *pFrame = pGr->getSpriteFrameByName(birdSpriteFrameName);
+        sprintf(birdSpriteFrameName, "bird%d_%d.png", mBirdType, i);
+        SpriteFrame *pFrame = pFrameCache->getSpriteFrameByName(birdSpriteFrameName);
         pBirdSpriteFrame.pushBack(pFrame);
     }
     sprintf(birdSpriteFrameName, "bird%d", mBirdType);

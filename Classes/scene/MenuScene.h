@@ -15,8 +15,6 @@ using namespace cocos2d;
 class MenuScene:public Scene
 {
 public:
-    MenuScene();
-    ~MenuScene();
     virtual bool init();
     CREATE_FUNC(MenuScene);
 };

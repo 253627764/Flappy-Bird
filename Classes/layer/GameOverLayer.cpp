@@ -7,7 +7,6 @@
 //
 
 #include "GameOverLayer.h"
-#include "../tools/GameResource.h"
 #include "../scene/GameScene.h"
 bool GameOverLayer::init()
 {
@@ -15,10 +14,10 @@ bool GameOverLayer::init()
         return false;
     }
     Size mWinSize = Director::getInstance()->getWinSize();
-    GameResource *pGr = GameResource::getInstance();
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     
     //add score panel
-    Sprite *pScorePanel = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("score_panel"));
+    Sprite *pScorePanel = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("score_panel.png"));
     pScorePanel->setPosition(Point(mWinSize.width/2, mWinSize.height/2));
     this->addChild(pScorePanel);
     
@@ -27,8 +26,8 @@ bool GameOverLayer::init()
     this->addChild(pMenu);
     
     //add restart button
-    Sprite *pRestartBtnNor = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("button_play"));
-    Sprite *pRestartBtnDow = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("button_play"));
+    Sprite *pRestartBtnNor = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("button_play.png"));
+    Sprite *pRestartBtnDow = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("button_play.png"));
     Size mRestartBtnSize = pRestartBtnNor->getContentSize();
     pRestartBtnDow->setScale(0.9f);
     MenuItemSprite *pRestartMenuItem = MenuItemSprite::create(pRestartBtnNor, pRestartBtnDow, CC_CALLBACK_0(GameOverLayer::gameRestart, this));
@@ -36,8 +35,8 @@ bool GameOverLayer::init()
     pMenu->addChild(pRestartMenuItem);
     
     //add shareScore button
-    Sprite *pShareScoreBtnNor = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("button_score"));
-    Sprite *pShareScoreBtnDow = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("button_score"));
+    Sprite *pShareScoreBtnNor = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("button_score.png"));
+    Sprite *pShareScoreBtnDow = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("button_score.png"));
     Size mShareScoreBtnSize = pShareScoreBtnNor->getContentSize();
     pShareScoreBtnDow->setScale(0.9f);
     MenuItemSprite *pShareScoreMenuItem = MenuItemSprite::create(pShareScoreBtnNor, pShareScoreBtnDow, CC_CALLBACK_0(GameOverLayer::gameShareScore, this));

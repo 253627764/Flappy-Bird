@@ -7,7 +7,6 @@
 //
 
 #include "GameMainLayer.h"
-#include "../tools/GameResource.h"
 #include "../domain/Pipe.h"
 #include "../util/GameConst.h"
 #include "GameOverLayer.h"
@@ -24,10 +23,10 @@ bool GameMainLayer::init()
         return false;
     }
     Size mWinSize = Director::getInstance()->getWinSize();
-    GameResource *pGr = GameResource::getInstance();
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     
     //add backgroud
-    Sprite *pBg = Sprite::createWithSpriteFrame(pGr->getSpriteFrameByName("bg_day"));
+    Sprite *pBg = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("bg_day.png"));
     pBg->setPosition(Point(mWinSize.width/2, mWinSize.height/2));
     this->addChild(pBg);
     
