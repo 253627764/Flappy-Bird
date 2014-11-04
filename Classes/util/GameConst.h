@@ -19,4 +19,8 @@ static const int PIPE_RANGE = 30;
 
 static const int BIRD_RADIUS = 15;
 
+static const int GOLD_MEDAL = 40;
+static const int SLIVER_MEDAL = 30;
+static const int BRANZE_MEDAL = 15;
+
 #endif

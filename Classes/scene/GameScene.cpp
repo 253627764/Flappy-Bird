@@ -8,6 +8,7 @@
 
 #include "GameScene.h"
 #include "../layer/GameMainLayer.h"
+#include "../layer/GameTutorLayer.h"
 #include "../util/GameResources.h"
 
 bool GameScene::init()
@@ -16,7 +17,9 @@ bool GameScene::init()
         return false;
     }
     GameMainLayer *pGameMainLayer = GameMainLayer::create();
-    this->addChild(pGameMainLayer);
+    this->addChild(pGameMainLayer, 0);
+    GameTutorLayer *pTutorLayer = GameTutorLayer::create();
+    this->addChild(pTutorLayer, 1);
     
     return true;
 }

@@ -73,6 +73,7 @@ bool GameMainLayer::init()
 void GameMainLayer::gameOver()
 {
     GameOverLayer *pGameOverLayer = GameOverLayer::create();
+    pGameOverLayer->showPanel(GameScoreLayer::getInstance()->getScore());
     this->addChild(pGameOverLayer, 128);
 }
 

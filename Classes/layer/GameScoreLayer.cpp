@@ -24,7 +24,7 @@ bool GameScoreLayer::init()
     Size mWinSize = Director::getInstance()->getWinSize();
     mScore = 0;
     pScoreLabel = Label::createWithBMFont(fnt_font1, "0");
-    pScoreLabel->setPosition(Point(mWinSize.width/2, mWinSize.height*0.75));
+    pScoreLabel->setPosition(Point(mWinSize.width/2, mWinSize.height*0.85));
     this->addChild(pScoreLabel);
     
     return true;

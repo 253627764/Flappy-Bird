@@ -8,6 +8,15 @@
 
 #include "GameOverLayer.h"
 #include "../scene/GameScene.h"
+#include "../util/GameResources.h"
+#include "../util/GameConst.h"
+
+using namespace std;
+GameOverLayer::GameOverLayer():pMedal(nullptr), pCurScoreLabel(nullptr), pBestScoreLabel(nullptr)
+{
+    
+}
+
 bool GameOverLayer::init()
 {
     if (!Layer::init()) {
@@ -16,10 +25,31 @@ bool GameOverLayer::init()
     Size mWinSize = Director::getInstance()->getWinSize();
     SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     
+    //add game over label
+    Sprite *pGameOverLabel = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("text_game_over.png"));
+    pGameOverLabel->setPosition(Point(mWinSize.width/2, mWinSize.height*0.72));
+    this->addChild(pGameOverLabel);
+    
     //add score panel
     Sprite *pScorePanel = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("score_panel.png"));
     pScorePanel->setPosition(Point(mWinSize.width/2, mWinSize.height/2));
     this->addChild(pScorePanel);
+    
+    Size mScorePanelSize = pScorePanel->getContentSize();
+    //add medal
+    pMedal = Sprite::create();
+    pMedal->setPosition(Point(mScorePanelSize.width*0.23, mScorePanelSize.height*0.46));
+    pScorePanel->addChild(pMedal);
+    
+    //add current score
+    pCurScoreLabel = Label::createWithBMFont(fnt_font2, "0");
+    pCurScoreLabel->setPosition(Point(mScorePanelSize.width*0.81, mScorePanelSize.height*0.59));
+    pScorePanel->addChild(pCurScoreLabel);
+    
+    //add best score
+    pBestScoreLabel = Label::createWithBMFont(fnt_font2, "0");
+    pBestScoreLabel->setPosition(Point(mScorePanelSize.width*0.81, mScorePanelSize.height*0.26));
+    pScorePanel->addChild(pBestScoreLabel);
     
     Menu *pMenu = Menu::create();
     pMenu->setPosition(Point::ZERO);
@@ -56,4 +86,29 @@ void GameOverLayer::gameRestart()
 void GameOverLayer::gameShareScore()
 {
     //TODO
+}
+
+void GameOverLayer::showPanel(int mScore)
+{
+    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
+    if (mScore >= GOLD_MEDAL) {
+        pMedal->setSpriteFrame(pFrameCache->getSpriteFrameByName("medals_3.png"));
+    }
+    else if (mScore >= SLIVER_MEDAL)
+    {
+        pMedal->setSpriteFrame(pFrameCache->getSpriteFrameByName("medals_2.png"));
+    }
+    else if (mScore >= BRANZE_MEDAL)
+    {
+        pMedal->setSpriteFrame(pFrameCache->getSpriteFrameByName("medals_1.png"));
+    }
+    else
+    {
+        pMedal->setSpriteFrame(pFrameCache->getSpriteFrameByName("medals_0.png"));
+    }
+    
+    char scoreStr[5] = {0};
+    sprintf(scoreStr, "%d", mScore);
+    pCurScoreLabel->setString(string(scoreStr));
+    pBestScoreLabel->setString(string(scoreStr));
 }
