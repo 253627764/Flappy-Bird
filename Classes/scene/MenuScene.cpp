@@ -20,10 +20,9 @@ bool MenuScene::init()
     auto menuLayer = MenuLayer::create();
     this->addChild(menuLayer);
     
-    //    auto menuBottomLayer = MenuBottomLayer::create();
-    //    menuBottomLayer->setPosition(Point(mWinSize.width/2, mWinSize.height*0.187));
-    //    menuBottomLayer->doMove();
-    //    this->addChild(menuBottomLayer);
+    auto menuBottomLayer = MenuBottomLayer::create();
+    menuBottomLayer->doMove();
+    this->addChild(menuBottomLayer);
     
     return true;
 }

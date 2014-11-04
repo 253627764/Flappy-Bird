@@ -12,13 +12,21 @@
 #include "cocos2d.h"
 using namespace cocos2d;
 
-class MenuBottomLayer:public Node
+class MenuBottomLayer:public Layer
 {
 public:
     MenuBottomLayer();
     virtual bool init();
     CREATE_FUNC(MenuBottomLayer);
+    virtual void update(float dt);
+    void stopMove();
     void doMove();
+private:
+    Sprite *pLand1;
+    Sprite *pLand2;
+    float mMinX;
+    float mPosX;
+    bool isStart;
 };
 
 #endif /* defined(__supertarkartGame__MenuBottomLayer__) */
