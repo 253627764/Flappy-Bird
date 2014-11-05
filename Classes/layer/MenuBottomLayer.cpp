@@ -22,16 +22,21 @@ bool MenuBottomLayer::init()
     SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     //add land1
     pLand1 = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("land.png"));
+    PhysicsBody *pLandBody1 = PhysicsBody::create();
+    pLandBody1->setDynamic(false);
+    
+    
+    
     Size mLandSize = pLand1->getContentSize();
-    pLand1->setPosition(Point(mWinSize.width/2, mLandSize.height));
+    pLand1->setPosition(Point(mWinSize.width/2, mLandSize.height/2));
     this->addChild(pLand1);
     
     isStart = true;
-    mMinX = mLandSize.width;
+    mMinX = mLandSize.width*1.25;
     mPosX = mWinSize.width/2 + mLandSize.width;
     //add land2
     pLand2 = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("land.png"));
-    pLand2->setPosition(Point(mPosX, mLandSize.height));
+    pLand2->setPosition(Point(mPosX, mLandSize.height/2));
     this->addChild(pLand2);
     
     return true;

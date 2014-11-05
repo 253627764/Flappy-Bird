@@ -24,10 +24,9 @@ bool GameMainLayer::init()
         return false;
     }
     Size mWinSize = Director::getInstance()->getWinSize();
-    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     
     //add backgroud
-    Sprite *pBg = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("bg_day.png"));
+    Sprite *pBg = Sprite::create("bg_day.png");
     pBg->setPosition(Point(mWinSize.width/2, mWinSize.height/2));
     this->addChild(pBg);
     

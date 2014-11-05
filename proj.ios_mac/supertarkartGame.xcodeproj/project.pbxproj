@@ -68,6 +68,7 @@
 		860BE26B1A0655DD00DC6D86 /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 860BE2691A0655DD00DC6D86 /* GameOverLayer.cpp */; };
 		860BE26E1A065D0A00DC6D86 /* GameScoreLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 860BE26C1A065D0A00DC6D86 /* GameScoreLayer.cpp */; };
 		8616C9A71A0915990088459D /* GameTutorLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8616C9A51A0915990088459D /* GameTutorLayer.cpp */; };
+		861896D11A0A526C00850E1C /* bg_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 861896D01A0A526C00850E1C /* bg_day.png */; };
 		8632D81B1A02851200261CC9 /* GameResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8632D8191A02851200261CC9 /* GameResource.cpp */; };
 		86612B4119FFEEBC00BFDD5A /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86612B3F19FFEEBC00BFDD5A /* MenuScene.cpp */; };
 		86612B4419FFF09700BFDD5A /* MenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86612B4219FFF09700BFDD5A /* MenuLayer.cpp */; };
@@ -295,6 +296,7 @@
 		860BE26D1A065D0A00DC6D86 /* GameScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScoreLayer.h; sourceTree = "<group>"; };
 		8616C9A51A0915990088459D /* GameTutorLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameTutorLayer.cpp; sourceTree = "<group>"; };
 		8616C9A61A0915990088459D /* GameTutorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorLayer.h; sourceTree = "<group>"; };
+		861896D01A0A526C00850E1C /* bg_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_day.png; sourceTree = "<group>"; };
 		8632D8191A02851200261CC9 /* GameResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameResource.cpp; sourceTree = "<group>"; };
 		8632D81A1A02851200261CC9 /* GameResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResource.h; sourceTree = "<group>"; };
 		86612B3F19FFEEBC00BFDD5A /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 		86EBD2741A049B5C005E9C53 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				861896D01A0A526C00850E1C /* bg_day.png */,
 				8696496C1A07BB68006AC6C0 /* font1_0.png */,
 				8696496D1A07BB68006AC6C0 /* font1.fnt */,
 				8696496E1A07BB68006AC6C0 /* font2_0.png */,
@@ -820,6 +823,7 @@
 				860BE25F1A06218500DC6D86 /* sfx_point.mp3 in Resources */,
 				860BE2611A06218500DC6D86 /* sfx_wing.mp3 in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				861896D11A0A526C00850E1C /* bg_day.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				869649771A07BB68006AC6C0 /* font2.fnt in Resources */,

@@ -21,7 +21,7 @@ bool MenuLayer::init()
     SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     
     //add backgound
-    Sprite* pBg = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("bg_day.png"));
+    Sprite* pBg = Sprite::create("bg_day.png");
     pBg->setPosition(Point(mSize.width/2, mSize.height/2));
     this->addChild(pBg);
     
