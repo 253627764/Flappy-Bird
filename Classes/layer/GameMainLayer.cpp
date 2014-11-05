@@ -11,6 +11,7 @@
 #include "../util/GameConst.h"
 #include "GameOverLayer.h"
 #include "GameScoreLayer.h"
+#include "MenuBottomLayer.h"
 
 using namespace CocosDenshion;
 GameMainLayer::GameMainLayer():pBird(nullptr)
@@ -29,6 +30,11 @@ bool GameMainLayer::init()
     Sprite *pBg = Sprite::create("bg_day.png");
     pBg->setPosition(Point(mWinSize.width/2, mWinSize.height/2));
     this->addChild(pBg);
+    
+    //add land
+    MenuBottomLayer *pLandLayer = MenuBottomLayer::create();
+    pLandLayer->doMove();
+    this->addChild(pLandLayer, 2);
     
     //add pipes
     auto pipe = Pipe::create();
@@ -60,6 +66,7 @@ bool GameMainLayer::init()
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sfx_hit.mp3");
         pipe->stopMovePipe();
         pBird->setBirdState(StateDie);
+        pLandLayer->stopMove();
         gameOver();
         _eventDispatcher->removeEventListener(pEventListener);
         return true;

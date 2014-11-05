@@ -19,23 +19,37 @@ bool MenuBottomLayer::init()
         return false;
     }
     Size mWinSize = Director::getInstance()->getWinSize();
-    SpriteFrameCache *pFrameCache = SpriteFrameCache::getInstance();
     //add land1
-    pLand1 = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("land.png"));
+    pLand1 = Sprite::create("land.png");
     PhysicsBody *pLandBody1 = PhysicsBody::create();
+    PhysicsShapeBox *pLandBox1 = PhysicsShapeBox::create(pLand1->getContentSize());
+    pLandBody1->addShape(pLandBox1);
     pLandBody1->setDynamic(false);
-    
-    
+    pLandBody1->setGravityEnable(false);
+    pLandBody1->setCategoryBitmask(1);
+    pLandBody1->setCollisionBitmask(-1);
+    pLandBody1->setContactTestBitmask(-1);
+    pLand1->setPhysicsBody(pLandBody1);
     
     Size mLandSize = pLand1->getContentSize();
     pLand1->setPosition(Point(mWinSize.width/2, mLandSize.height/2));
     this->addChild(pLand1);
     
     isStart = true;
-    mMinX = mLandSize.width*1.25;
+    mMinX = -mLandSize.width/2;
     mPosX = mWinSize.width/2 + mLandSize.width;
     //add land2
-    pLand2 = Sprite::createWithSpriteFrame(pFrameCache->getSpriteFrameByName("land.png"));
+    pLand2 = Sprite::create("land.png");
+    PhysicsBody *pLandBody2 = PhysicsBody::create();
+    PhysicsShapeBox *pLandBox2 = PhysicsShapeBox::create(pLand2->getContentSize());
+    pLandBody2->addShape(pLandBox2);
+    pLandBody2->setDynamic(false);
+    pLandBody2->setGravityEnable(false);
+    pLandBody2->setCategoryBitmask(1);
+    pLandBody2->setCollisionBitmask(-1);
+    pLandBody2->setContactTestBitmask(-1);
+    pLand2->setPhysicsBody(pLandBody2);
+    
     pLand2->setPosition(Point(mPosX, mLandSize.height/2));
     this->addChild(pLand2);
     
@@ -60,6 +74,8 @@ void MenuBottomLayer::doMove()
 void MenuBottomLayer::stopMove()
 {
     unschedule(schedule_selector(MenuBottomLayer::update));
+    pLand1->stopAllActions();
+    pLand2->stopAllActions();
 }
 
 void MenuBottomLayer::update(float dt)
