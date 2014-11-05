@@ -10,6 +10,7 @@
 #include "../scene/GameScene.h"
 #include "../util/GameResources.h"
 #include "../util/GameConst.h"
+#include "../tools/GameData.h"
 
 using namespace std;
 GameOverLayer::GameOverLayer():pMedal(nullptr), pCurScoreLabel(nullptr), pBestScoreLabel(nullptr)
@@ -110,5 +111,13 @@ void GameOverLayer::showPanel(int mScore)
     char scoreStr[5] = {0};
     sprintf(scoreStr, "%d", mScore);
     pCurScoreLabel->setString(string(scoreStr));
+    
+    GameData *pGd = GameData::getInstance();
+    if (mScore > pGd->mPlayerScore) {
+        pGd->mPlayerScore = mScore;
+        pGd->saveData();
+    }
+    int mBestScore = pGd->mPlayerScore;
+    sprintf(scoreStr, "%d", mBestScore);
     pBestScoreLabel->setString(string(scoreStr));
 }

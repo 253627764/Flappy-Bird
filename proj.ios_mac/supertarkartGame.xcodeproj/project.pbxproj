@@ -70,6 +70,7 @@
 		8616C9A71A0915990088459D /* GameTutorLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8616C9A51A0915990088459D /* GameTutorLayer.cpp */; };
 		861896D11A0A526C00850E1C /* bg_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 861896D01A0A526C00850E1C /* bg_day.png */; };
 		861896D51A0A56FF00850E1C /* land.png in Resources */ = {isa = PBXBuildFile; fileRef = 861896D41A0A56FF00850E1C /* land.png */; };
+		861896D81A0A5E4400850E1C /* GameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 861896D61A0A5E4400850E1C /* GameData.cpp */; };
 		8632D81B1A02851200261CC9 /* GameResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8632D8191A02851200261CC9 /* GameResource.cpp */; };
 		86612B4119FFEEBC00BFDD5A /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86612B3F19FFEEBC00BFDD5A /* MenuScene.cpp */; };
 		86612B4419FFF09700BFDD5A /* MenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86612B4219FFF09700BFDD5A /* MenuLayer.cpp */; };
@@ -299,6 +300,8 @@
 		8616C9A61A0915990088459D /* GameTutorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorLayer.h; sourceTree = "<group>"; };
 		861896D01A0A526C00850E1C /* bg_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_day.png; sourceTree = "<group>"; };
 		861896D41A0A56FF00850E1C /* land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = land.png; sourceTree = "<group>"; };
+		861896D61A0A5E4400850E1C /* GameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameData.cpp; sourceTree = "<group>"; };
+		861896D71A0A5E4400850E1C /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
 		8632D8191A02851200261CC9 /* GameResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameResource.cpp; sourceTree = "<group>"; };
 		8632D81A1A02851200261CC9 /* GameResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResource.h; sourceTree = "<group>"; };
 		86612B3F19FFEEBC00BFDD5A /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
@@ -599,6 +602,8 @@
 			children = (
 				8632D8191A02851200261CC9 /* GameResource.cpp */,
 				8632D81A1A02851200261CC9 /* GameResource.h */,
+				861896D61A0A5E4400850E1C /* GameData.cpp */,
+				861896D71A0A5E4400850E1C /* GameData.h */,
 			);
 			name = tools;
 			path = ../Classes/tools;
@@ -879,6 +884,7 @@
 				86EBD28A1A04A71F005E9C53 /* MenuBottomLayer.cpp in Sources */,
 				8616C9A71A0915990088459D /* GameTutorLayer.cpp in Sources */,
 				86612B4419FFF09700BFDD5A /* MenuLayer.cpp in Sources */,
+				861896D81A0A5E4400850E1C /* GameData.cpp in Sources */,
 				86612B4119FFEEBC00BFDD5A /* MenuScene.cpp in Sources */,
 				86EBD2951A04C1C0005E9C53 /* Bird.cpp in Sources */,
 				86EBD2921A04BEC6005E9C53 /* GameMainLayer.cpp in Sources */,
